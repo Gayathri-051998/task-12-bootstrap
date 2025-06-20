@@ -10,6 +10,7 @@ const ForgotPassword = () => {
     try {
       const res = await API.post('/request-reset', { email });
       toast.success(res.data.message);
+      setForm({ email: ''});
     } catch (err) {
       toast.error(err.response?.data?.message || 'Failed to send reset link');
     }

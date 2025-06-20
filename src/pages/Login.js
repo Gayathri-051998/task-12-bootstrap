@@ -10,6 +10,7 @@ const Login = () => {
     try {
       const res = await API.post('/Login', form);
       toast.success(res.data.message);
+      setForm({ email: '', password: '' });
     } catch (err) {
       toast.error(err.response?.data?.message || 'Login failed');
     }

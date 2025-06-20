@@ -10,6 +10,7 @@ const Register = () => {
     try {
       const res = await API.post('/signup', form);
       toast.success(res.data.message);
+      setForm({ username: '', email: '', password: '' });
     } catch (err) {
       toast.error(err.response?.data?.message || 'Error');
     }
